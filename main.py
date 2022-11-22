@@ -17,7 +17,7 @@ async def on_ready():
     print(f"We have logged in as {bot.user}")
 
 @bot.slash_command(guild_ids=["984609554836881470"], description= "Summarize this Text!")
-async def summarize(ctx,prompt:Option(str, description="enter prompt",name= "prompt")):
+async def summarize(ctx,prompt:Option(str, description="enter prompt",name= "prompt", required=True), user:Option(discord.Member)):
     # await ctx.channel.trigger_typing()
     answer = query({
     "inputs": prompt
@@ -28,7 +28,8 @@ async def summarize(ctx,prompt:Option(str, description="enter prompt",name= "pro
     try:
         await ctx.respond(f"Summarized Text: {answers}")
     except:
-        await ctx.send(f"Summarized Text: {answers}")
+        user = ctx.author.id
+        await ctx.send(f"<@{user}> Summarized Text: {answers}")
 
 @bot.slash_command(guild_ids=["984609554836881470"], description= "Is that it?", name="food")
 async def wasthatit(ctx,user:Option(discord.Member, "enter prompt",name= "user")):
