@@ -1,4 +1,3 @@
-# from summarize import query
 
 # This example requires the 'message_content' intent.
 
@@ -8,6 +7,8 @@ import os
 dotenv.load_dotenv()
 import discord
 from discord import Option
+from summarize import query
+
 
 bot = discord.Bot()
 
@@ -17,7 +18,14 @@ async def on_ready():
 
 @bot.slash_command(guild_ids=["984609554836881470"], description= "Summarize this Text!")
 async def summarize(ctx,prompt:Option(str, description="enter prompt",name= "prompt")):
-    await ctx.respond(f"Summarized Text: {prompt}")
+    # await ctx.channel.trigger_typing()
+    answer = query({
+    "inputs": prompt
+})
+    print(prompt)
+    print(answer[0]['summary_text'])
+    answers = answer[0]['summary_text']
+    await ctx.respond(f"Summarized Text: {answers}")
 
 @bot.slash_command(guild_ids=["984609554836881470"], description= "Is that it?", name="food")
 async def wasthatit(ctx,user:Option(discord.Member, "enter prompt",name= "user")):

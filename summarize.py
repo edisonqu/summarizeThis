@@ -13,10 +13,8 @@ def query(payload):
     response = requests.post(API_URL, headers=headers, json=payload)
     return response.json()
 
-input = input("Input your prompt: ")
-
-output = query({
-    "inputs": input
-})
-
-print(output)
+# output = query({
+#     "inputs": input
+# })
+#
+# print(output)
