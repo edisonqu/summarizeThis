@@ -34,8 +34,8 @@ async def summarize(ctx,prompt:Option(str, description="enter prompt",name= "pro
 @bot.slash_command(guild_ids=["984609554836881470"], description= "Is that it?", name="food")
 async def wasthatit(ctx,user:Option(discord.Member, "enter prompt",name= "user")):
     if user == None:
-        user = ctx.author
-    await ctx.respond(f"Was that it? @{user}")
+        user = ctx.author.id
+    await ctx.respond(f"Was that it? <@{user}>")
 
 
 bot.run(os.getenv("DB_TOKEN"))
