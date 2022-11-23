@@ -28,3 +28,18 @@
 
   <img src = https://user-images.githubusercontent.com/63879791/203456582-e398c79d-dccc-4735-bed2-cde9fdaeffd9.gif>
 </div>
+
+## What is Summarize This?
+
+Summarize This is a Discord bot that allows users to summarze any piece of information that they input into the prompt. This Bot is using the BART model, fine-tuned on CNN Daily Mail. 
+
+First Introduced in [BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension](https://arxiv.org/abs/1910.13461), and now released in [this repository](https://github.com/pytorch/fairseq/tree/master/examples/bart). This model is being run on Hugging Face and their API. 
+
+This bot is free for everyone and always will be.
+
+## How does it work?
+
+When a member uses a slash command to initiate the bot, they need to input a prompt. This prompt will be the information you pass onto the model in order to summarize. 
+
+## Thank you Discord for giving out badges for developers again... <3
+and elliot
